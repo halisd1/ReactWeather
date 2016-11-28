@@ -2,7 +2,7 @@ var React = require('react');
 
 var About = (props) => {
   return(
-    <div className = "callout primary large">
+    <div className = "callout primary large page-title">
       <h2>About Author,</h2>
       <p>"Here the author is trying to learn CSS and React JS. Let's wish him luck."</p>
       <p>Lets revisit this page in November 2017 and see where he is.</p>
