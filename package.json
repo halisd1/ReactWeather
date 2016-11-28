@@ -25,7 +25,7 @@
     "babel-preset-stage-3": "^6.17.0",
     "css-loader": "^0.26.0",
     "foundation-sites": "^6.2.3",
-    "jquery": "^3.1.1",
+    "jquery": "^2.2.4",
     "script-loader": "^0.7.0",
     "style-loader": "^0.13.1",
     "webpack": "^1.12.3"
