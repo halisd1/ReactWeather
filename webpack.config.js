@@ -31,21 +31,26 @@ module.exports = {
       WeatherMessage: 'app/components/WeatherMessage.jsx',
       openWeatherMap: 'app/api/openWeatherMap.jsx',
       ErrorModal: 'app/components/ErrorModal.jsx',
-      applicationStyles: 'app/styles/app.css'
+      appStyles: 'app/styles/app.scss',
     },
     extensions: ['', '.js', '.jsx']
   },
-  module: {
-    loaders: [
-      {
-        loader: 'babel-loader',
+  module:{
+      loaders: [
+        {
+          loaders: ['style','css', 'sass'],
+          test: /\.scss$/
+        },
+        {
+          loader:
+          'babel-loader',
         query: {
           presets: ['react', 'es2015']
         },
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/
       }
-    ]
+    ],
   },
   devtool: 'eval-source-map'
 };
