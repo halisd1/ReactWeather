@@ -27,10 +27,35 @@ var Weather = React.createClass({
     }, function(e){
       that.setState({
         isLoading: false,
-        errorMessage: e.message
+        errorMessage: e.message,
+        cityname: undefined,
+        temp: undefined,
       });
         alert(errorMessage);
     });
+  },
+
+  componentDidMount: function (){
+    var cityname = this.props.location.query.location;
+
+    this.setState({
+      cityname: cityname
+    });
+
+    if (cityname && cityname.length > 0)
+    this.handleSearch(cityname);
+    window.location.hash = '#/';
+  },
+
+  componentWillReceiveProps: function (newProps){
+    var cityname = newProps.location.query.location;
+
+    console.log(cityname);
+    console.log(location);
+
+    if (cityname.length > 0)
+    this.handleSearch(cityname);
+    window.location.hash = '#/';
   },
 
   render: function(){
@@ -42,12 +67,12 @@ var Weather = React.createClass({
     function renderMessage (){
         if (isLoading){
           return <h3 className="text-center">Fetching Weather...</h3>;
-        } else if (temp && location){
+        } else if (temp && cityname){
           return <WeatherMessage cityname={cityname} temp={temp}/>;
         }
     }
 
-    function renderError (){
+    function renderError (){  // renderError
       if (typeof errorMessage === 'string'){
         return (
           <ErrorModal message={errorMessage}/>
